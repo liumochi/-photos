@@ -4,6 +4,8 @@
 $(function(){
     var $container = $('#container');
     var $imgShow = $('#img-show');
+    var $lastShow = $('#last-show');
+    var $firstShow = $('#first-show');
     var margin = 2;
     var iNow=0;
     for(var i=0;i<24;i++){
@@ -28,12 +30,15 @@ $(function(){
     $imgShow.on('tap',function(e){
         $container.show();
         $imgShow.hide();
+        $lastShow.slideUp();
         e.preventDefault();
     }).on('swipeleft', function () {
         iNow++;
         if(iNow==24){
-            iNow=24;
+            iNow=23;
+            $lastShow.slideDown();
         }
+        $lastShow.slideUp();
         $imgShow.show().css({
             background:'url(images/'+(iNow+1)+'.jpg) no-repeat center',
             backgroundSize:'contain'
@@ -43,7 +48,9 @@ $(function(){
         iNow--;
         if(iNow==-1){
             iNow=0;
+            $firstShow.slideDown();
         }
+        $firstShow.slideUp();
         $imgShow.show().css({
             background:'url(images/'+(iNow+1)+'.jpg) no-repeat center',
             backgroundSize:'contain'

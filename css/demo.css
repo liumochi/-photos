@@ -25,3 +25,18 @@ body{
     height: 100%;
     display: none;
 }
+#last-show,#first-show{
+    position: absolute;
+    width: 100%;
+    display: none;
+}
+#last-show p{
+    text-align: center;
+    color: hotpink;
+    font-size: 80px;
+}
+#first-show p{
+    text-align: center;
+    color: hotpink;
+    font-size: 80px;
+}
